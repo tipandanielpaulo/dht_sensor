@@ -1,2 +1,3 @@
-# dht_sensor
+# DHT22 Raspberry Pi 
+
 Use a DHT Temperature and Humidity sensor and store it in a database for a Raspberry Pi. 

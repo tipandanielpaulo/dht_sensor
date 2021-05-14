@@ -1,5 +1,11 @@
-import sqlite3
-from sqlite3 import Error
+"""
+This code is used to create an SQLite database to store DHT22 sensor data.
+
+Columns: Id, Date, Temperature, and Humidity
+"""
+
+import sqlite3 # Import SQL Library
+from sqlite3 import Error # Catch Errors
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database

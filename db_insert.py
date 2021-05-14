@@ -1,14 +1,18 @@
+"""
+Use this code to insert data from DHT22 to SQLite Database
 
+"""
 import sqlite3
 from sqlite3 import Error
 from datetime import datetime
+# Library for DHT22
 import Adafruit_DHT
 
+# Initialize Sensor
 DHT_SENSOR = Adafruit_DHT.DHT22
+# Sensor GPIO
 DHT_PIN = 4
 
-#temp = '34.23'
-#humi = '65.34'
 
 def create_connection(db_file):
     """ create a database connection to the SQLite database

@@ -1,3 +1,4 @@
+
 import sqlite3
 from sqlite3 import Error
 from datetime import datetime
@@ -38,15 +39,18 @@ def create_project(conn, project):
     return cur.lastrowid
 
 def main():
-    database = "database.db"
+    database = "/home/pi/dht_sensor/database.db"
     humi, temp = Adafruit_DHT.read_retry(DHT_SENSOR, DHT_PIN)
-    date = datetime.today().strftime('%Y-%m-%d')
+    date = datetime.today().strftime('%Y-%m-%d %H:%M')
     # create a database connection
     conn = create_connection(database)
     with conn:
-        # create a new project
+        # read dht
+        temp = round(temp,3)
+        humi = round(humi,3)
         dht = (date, temp, humi);
         project_id = create_project(conn, dht)
+        print(dht)
 
 if __name__ == '__main__':
     main()
